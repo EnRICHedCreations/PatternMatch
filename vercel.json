@@ -1,6 +1,7 @@
 {
   "cleanUrls": true,
   "trailingSlash": false,
+  "version": 1.2,
   "headers": [
     {
       "source": "/(.*)",
