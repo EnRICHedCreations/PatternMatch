@@ -552,3 +552,22 @@ footer {
 .crisis-banner-text { font-size: 13px; color: var(--text2); line-height: 1.6; }
 .crisis-banner-text strong { color: var(--text); }
 .crisis-banner-text a { color: var(--red); font-weight: 500; }
+
+/* ===== Weight-modifier annotation styles (v1.1) ===== */
+/* tok-amplified: negation masking detected — brighter underline, subtle pulse */
+.tok-amplified {
+  outline: 1px solid rgba(255,255,255,0.15);
+  border-bottom-width: 3px !important;
+  animation: tok-pulse 2.2s ease-in-out infinite;
+}
+
+@keyframes tok-pulse {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.7; }
+}
+
+/* tok-muted: suppressive negation — de-emphasized, dotted underline */
+.tok-muted {
+  opacity: 0.55;
+  border-bottom-style: dotted !important;
+}
