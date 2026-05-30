@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PatternMatch — Manipulation Language Analyzer</title>
+<meta name="description" content="A free, private, deterministic tool for analyzing manipulative and coercive language patterns. No AI, no server, no data leaves your device.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.10.0/dist/tabler-icons.min.css">
+<link rel="stylesheet" href="./css/style.css">
+<style>
+.analyzer-layout { display: grid; grid-template-columns: 1fr 280px; gap: 16px; align-items: start; }
+.annotated-output {
+  font-family: var(--mono);
+  font-size: 13px;
+  line-height: 2;
+  min-height: 80px;
+  color: var(--text);
+  word-break: break-word;
+}
+.flag-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  padding: 8px;
+  background: var(--bg3);
+  border-radius: var(--radius);
+  margin-bottom: 6px;
+  font-size: 12px;
+}
+.flag-item .flag-txt { color: var(--text2); line-height: 1.5; }
+.pronoun-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.p-stat { text-align: center; padding: 10px 8px; background: var(--bg3); border-radius: var(--radius); }
+.p-stat .v { font-family: var(--mono); font-size: 22px; font-weight: 500; }
+.p-stat .l { font-family: var(--mono); font-size: 10px; color: var(--text3); margin-top: 2px; }
+.legend-row { display: flex; align-items: center; gap: 8px; margin-bottom: 7px; font-size: 12px; color: var(--text2); }
+.legend-line { width: 20px; height: 3px; border-radius: 2px; flex-shrink: 0; }
+.sample-btns { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px; }
+.sample-btn {
+  font-family: var(--mono);
+  font-size: 10px;
+  padding: 4px 10px;
+  background: var(--bg3);
+  border: 0.5px solid var(--border);
+  border-radius: var(--radius);
+  cursor: pointer;
+  color: var(--text3);
+  transition: border-color 0.15s, color 0.15s;
+}
+.sample-btn:hover { color: var(--text); border-color: var(--border2); }
+.hero { padding: 56px 0 40px; }
+.hero-label { font-family: var(--mono); font-size: 11px; color: var(--text3); text-transform: uppercase; letter-spacing: 1.2px; margin-bottom: 16px; }
+.hero h1 { font-size: 34px; font-weight: 500; letter-spacing: -0.8px; margin-bottom: 14px; }
+.hero h1 span { color: var(--red); }
+.hero p { font-size: 15px; color: var(--text2); max-width: 540px; line-height: 1.75; margin-bottom: 24px; }
+.trust-badges { display: flex; flex-wrap: wrap; gap: 8px; }
+.trust-badge {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--text3);
+  background: var(--bg3);
+  border: 0.5px solid var(--border);
+  padding: 5px 10px;
+  border-radius: var(--radius);
+}
+.trust-badge i { font-size: 14px; color: var(--teal); }
+@media (max-width: 800px) {
+  .analyzer-layout { grid-template-columns: 1fr; }
+  .hero h1 { font-size: 26px; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a class="nav-logo" href="index.html">Pattern<span>Match</span></a>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="index.html">Analyzer</a></li>
+      <li><a href="journal.html">Journal</a></li>
+      <li><a href="learn.html">Learn</a></li>
+      <li><a href="safety.html">Safety Plan</a></li>
+      <li><a href="resources.html">Get Help</a></li>
+    </ul>
+    <a class="nav-emergency" href="resources.html#crisis">⚑ Crisis Help</a>
+    <button class="nav-hamburger" id="nav-ham" aria-label="Menu"><i class="ti ti-menu-2"></i></button>
+  </div>
+</nav>
+
+<main>
+  <div class="container">
+
+    <div class="hero">
+      <div class="hero-label">// linguistic coercion compiler v1.0</div>
+      <h1>Stop Doubting Yourself.<br>See the <span>Pattern</span>.</h1>
+      <p>PatternMatch scans text for psychological manipulation tactics — ultimatums, gaslighting, isolation, blame-shifting, and more. No AI. No server. Your text never leaves this page.</p>
+      <div class="trust-badges">
+        <span class="trust-badge"><i class="ti ti-device-laptop"></i> 100% local</span>
+        <span class="trust-badge"><i class="ti ti-shield-lock"></i> no data sent</span>
+        <span class="trust-badge"><i class="ti ti-code"></i> deterministic</span>
+        <span class="trust-badge"><i class="ti ti-heart"></i> free forever</span>
+      </div>
+    </div>
+
+    <div class="crisis-banner">
+      <i class="ti ti-alert-triangle" aria-hidden="true"></i>
+      <div class="crisis-banner-text">
+        <strong>If you are in immediate danger, call 911.</strong>
+        For 24/7 support, the <a href="resources.html#crisis">National Domestic Violence Hotline</a> is available at <strong>1-800-799-7233</strong> or text START to 88788.
+      </div>
+    </div>
+
+    <div class="analyzer-layout">
+
+      <!-- LEFT COLUMN -->
+      <div style="display:flex;flex-direction:column;gap:14px;">
+
+        <div class="panel">
+          <div class="panel-label">input // paste message to analyze</div>
+          <textarea id="inputText" rows="7" placeholder="Paste the text message, email, or conversation here..."></textarea>
+          <div style="display:flex;align-items:center;gap:8px;margin-top:10px;flex-wrap:wrap;">
+            <button class="btn btn-primary" onclick="runAnalysis()"><i class="ti ti-scan"></i> run analysis</button>
+            <button class="btn" onclick="clearAll()"><i class="ti ti-refresh"></i> clear</button>
+            <button class="btn" id="saveBtn" onclick="saveToJournal()" style="display:none"><i class="ti ti-bookmark"></i> save to journal</button>
+            <button class="btn" id="copyBtn" onclick="copyReport()" style="display:none"><i class="ti ti-copy"></i> copy report</button>
+          </div>
+          <div style="margin-top:12px;">
+            <div class="panel-label" style="margin-bottom:6px">try samples</div>
+            <div class="sample-btns">
+              <button class="sample-btn" onclick="loadSample(0)">ultimatum</button>
+              <button class="sample-btn" onclick="loadSample(1)">isolation</button>
+              <button class="sample-btn" onclick="loadSample(2)">gaslighting</button>
+              <button class="sample-btn" onclick="loadSample(3)">blame shift</button>
+              <button class="sample-btn" onclick="loadSample(4)">surveillance</button>
+              <button class="sample-btn" onclick="loadSample(5)">mixed / high risk</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="panel">
+          <div class="panel-label">annotated output // flagged patterns highlighted</div>
+          <div class="annotated-output" id="annotatedOutput">
+            <span style="color:var(--text3);font-family:var(--mono);font-size:12px;">// output will appear here after analysis</span>
+          </div>
+        </div>
+
+        <div class="panel">
+          <div class="panel-label">flags detected</div>
+          <div id="flagList">
+            <div class="empty">// no flags yet — run analysis above</div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- RIGHT COLUMN -->
+      <div style="display:flex;flex-direction:column;gap:14px;">
+
+        <div class="panel">
+          <div class="panel-label">verdict</div>
+          <div class="verdict" id="verdictBox">// run analysis to generate report</div>
+        </div>
+
+        <div class="panel">
+          <div class="panel-label">coercion index</div>
+          <div class="score-row">
+            <div class="score-meta"><span class="lbl">urgency</span><span class="val" id="s-urgency">—</span></div>
+            <div class="score-track"><div class="score-fill sf-red" id="b-urgency"></div></div>
+          </div>
+          <div class="score-row">
+            <div class="score-meta"><span class="lbl">isolation</span><span class="val" id="s-isolation">—</span></div>
+            <div class="score-track"><div class="score-fill sf-amber" id="b-isolation"></div></div>
+          </div>
+          <div class="score-row">
+            <div class="score-meta"><span class="lbl">blame_shift</span><span class="val" id="s-blame">—</span></div>
+            <div class="score-track"><div class="score-fill sf-pink" id="b-blame"></div></div>
+          </div>
+          <div class="score-row">
+            <div class="score-meta"><span class="lbl">reality_dist</span><span class="val" id="s-gas">—</span></div>
+            <div class="score-track"><div class="score-fill sf-purple" id="b-gas"></div></div>
+          </div>
+          <div class="score-row">
+            <div class="score-meta"><span class="lbl">surveillance</span><span class="val" id="s-surv">—</span></div>
+            <div class="score-track"><div class="score-fill sf-blue" id="b-surv"></div></div>
+          </div>
+          <div class="score-row" style="margin-bottom:0">
+            <div class="score-meta"><span class="lbl" style="color:var(--text);">overall_risk</span><span class="val" id="s-overall" style="font-size:14px;">—</span></div>
+            <div class="score-track" style="height:6px;"><div class="score-fill sf-red" id="b-overall"></div></div>
+          </div>
+        </div>
+
+        <div class="panel">
+          <div class="panel-label">pronoun vector</div>
+          <div class="pronoun-grid">
+            <div class="p-stat"><div class="v" id="pv-you">—</div><div class="l">YOU</div></div>
+            <div class="p-stat"><div class="v" id="pv-i">—</div><div class="l">I / ME</div></div>
+            <div class="p-stat"><div class="v" id="pv-we">—</div><div class="l">WE / US</div></div>
+            <div class="p-stat"><div class="v" id="pv-ratio">—</div><div class="l">YOU/I ratio</div></div>
+          </div>
+          <p style="font-size:11px;color:var(--text3);margin-top:10px;font-family:var(--mono);line-height:1.6;">A high YOU/I ratio (>2) with negative verbs is a strong indicator of blame-shifting. "We" weaponized to erase your autonomy is an isolation signal.</p>
+        </div>
+
+        <div class="panel">
+          <div class="panel-label">legend</div>
+          <div class="legend-row"><div class="legend-line" style="background:var(--red)"></div>Ultimatum / Threat</div>
+          <div class="legend-row"><div class="legend-line" style="background:var(--amber)"></div>Isolation Tactic</div>
+          <div class="legend-row"><div class="legend-line" style="background:var(--purple)"></div>Reality Distortion</div>
+          <div class="legend-row"><div class="legend-line" style="background:var(--pink)"></div>Blame Shifting</div>
+          <div class="legend-row"><div class="legend-line" style="background:var(--teal)"></div>Love Bombing</div>
+          <div class="legend-row" style="margin-bottom:0"><div class="legend-line" style="background:var(--blue)"></div>Surveillance / Control</div>
+        </div>
+
+        <a href="learn.html" class="btn btn-ghost" style="justify-content:center;font-size:12px;">
+          <i class="ti ti-book"></i> understand these patterns
+        </a>
+
+      </div>
+    </div>
+
+  </div>
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <span>PatternMatch — open source, no server, no tracking</span>
+    <span>If you're in danger: <a href="tel:18007997233">1-800-799-7233</a> · <a href="resources.html">more resources</a></span>
+  </div>
+</footer>
+
+<script src="./js/engine.js"></script>
+<script src="./js/ui.js"></script>
+<script>
+const SAMPLES = [
+  "Answer me right now. Last chance. If you don't respond I mean it this time, we are done. You better make up your mind.",
+  "Why do you always need to talk to your friends about everything? They don't actually care about you like I do. We don't need anyone else. Just the two of us is enough.",
+  "You're misremembering. I never said that. You always blow things out of proportion and you're imagining things. Everyone else thinks you overreact too. You're being irrational.",
+  "You always mess up everything I try to build. You never think about what I need. Because of you I have to fix everything. You made me do this.",
+  "Why aren't you answering? Where are you? Who are you with? You know I can track your location. Show me your phone. If you have nothing to hide this shouldn't be a problem.",
+  "If you don't block him right now we are done, I mean it. You always ruin everything. I never said you couldn't see your family — you're misremembering. Who were you with last night? Why aren't you answering me? You left me no choice. Everyone agrees you overreact. This is your fault."
+];
+
+let lastResult = null;
+
+async function runAnalysis() {
+  const text = document.getElementById('inputText').value.trim();
+  if (!text) return;
+
+  const result = await PM.analyze(text);
+  lastResult = { text, result };
+
+  // Annotated output
+  document.getElementById('annotatedOutput').innerHTML = result.annotatedHTML ||
+    '<span style="color:var(--text3);font-family:var(--mono);font-size:12px;">// no patterns detected</span>';
+
+  // Scores
+  animateBar('b-urgency',   's-urgency',   result.scores.urgency);
+  animateBar('b-isolation', 's-isolation', result.scores.isolation);
+  animateBar('b-blame',     's-blame',     result.scores.blame_shift);
+  animateBar('b-gas',       's-gas',       result.scores.gaslighting);
+  animateBar('b-surv',      's-surv',      result.scores.surveillance);
+  animateBar('b-overall',   's-overall',   result.scores.overall);
+
+  // Pronouns
+  document.getElementById('pv-you').textContent   = result.pronouns.you;
+  document.getElementById('pv-i').textContent     = result.pronouns.i;
+  document.getElementById('pv-we').textContent    = result.pronouns.we;
+  document.getElementById('pv-ratio').textContent = result.pronouns.ratio;
+
+  // Verdict
+  const vb = document.getElementById('verdictBox');
+  vb.className = 'verdict ' + result.verdictLevel;
+  vb.textContent = result.verdictMessage;
+
+  // Flags
+  const fl = document.getElementById('flagList');
+  if (result.flagList.length === 0) {
+    fl.innerHTML = '<div class="empty">// no manipulation flags detected</div>';
+  } else {
+    fl.innerHTML = result.flagList.map(f => {
+      const cls = PM.badgeClass(f.category);
+      return `<div class="flag-item">
+        <span class="badge ${cls}">${f.category.replace('_',' ')}</span>
+        <span class="flag-txt">"${PM.escape(f.text)}"</span>
+      </div>`;
+    }).join('');
+  }
+
+  document.getElementById('saveBtn').style.display = '';
+  document.getElementById('copyBtn').style.display = '';
+}
+
+function clearAll() {
+  document.getElementById('inputText').value = '';
+  document.getElementById('annotatedOutput').innerHTML = '<span style="color:var(--text3);font-family:var(--mono);font-size:12px;">// output will appear here after analysis</span>';
+  document.getElementById('flagList').innerHTML = '<div class="empty">// no flags yet — run analysis above</div>';
+  document.getElementById('verdictBox').className = 'verdict';
+  document.getElementById('verdictBox').textContent = '// run analysis to generate report';
+  ['urgency','isolation','blame','gas','surv','overall'].forEach(k => {
+    const bar = document.getElementById('b-' + k);
+    const lbl = document.getElementById('s-' + k);
+    if (bar) bar.style.width = '0%';
+    if (lbl) lbl.textContent = '—';
+  });
+  ['you','i','we','ratio'].forEach(k => { const el = document.getElementById('pv-' + k); if(el) el.textContent = '—'; });
+  document.getElementById('saveBtn').style.display = 'none';
+  document.getElementById('copyBtn').style.display = 'none';
+  lastResult = null;
+}
+
+function loadSample(i) {
+  document.getElementById('inputText').value = SAMPLES[i];
+  runAnalysis();
+}
+
+function saveToJournal() {
+  if (!lastResult) return;
+  PM.journal.save({
+    text: truncate(lastResult.text, 200),
+    fullText: lastResult.text,
+    flagCount: lastResult.result.flagList.length,
+    riskLevel: lastResult.result.verdictLevel,
+    overallScore: lastResult.result.scores.overall
+  });
+  const btn = document.getElementById('saveBtn');
+  const orig = btn.innerHTML;
+  btn.innerHTML = '<i class="ti ti-check"></i> saved';
+  setTimeout(() => { btn.innerHTML = orig; }, 2000);
+}
+
+function copyReport() {
+  if (!lastResult) return;
+  const r = lastResult.result;
+  const lines = [
+    'PATTERNMATCH ANALYSIS REPORT',
+    '='.repeat(40),
+    `Date: ${new Date().toLocaleString()}`,
+    `Risk Level: ${r.verdictLevel.toUpperCase()}`,
+    `Overall Score: ${r.scores.overall}%`,
+    '',
+    'COERCION INDEX:',
+    `  Urgency:          ${Math.round(r.scores.urgency)}%`,
+    `  Isolation:        ${Math.round(r.scores.isolation)}%`,
+    `  Blame Shifting:   ${Math.round(r.scores.blame_shift)}%`,
+    `  Reality Distort:  ${Math.round(r.scores.gaslighting)}%`,
+    `  Surveillance:     ${Math.round(r.scores.surveillance)}%`,
+    '',
+    'PRONOUN VECTOR:',
+    `  YOU: ${r.pronouns.you}  |  I/ME: ${r.pronouns.i}  |  WE/US: ${r.pronouns.we}  |  Ratio: ${r.pronouns.ratio}`,
+    '',
+    `FLAGS DETECTED (${r.flagList.length}):`,
+    ...r.flagList.map(f => `  [${f.category.toUpperCase()}] "${f.text}"`),
+    '',
+    '='.repeat(40),
+    'PatternMatch — patternmatch.app',
+    'National DV Hotline: 1-800-799-7233'
+  ];
+  copyToClipboard(lines.join('\n'), document.getElementById('copyBtn'));
+}
+</script>
+
+</body>
+</html>

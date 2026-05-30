@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Learn — PatternMatch</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.10.0/dist/tabler-icons.min.css">
+<link rel="stylesheet" href="./css/style.css">
+<style>
+.topic-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 10px;
+  margin-bottom: 36px;
+}
+.topic-card {
+  background: var(--bg2);
+  border: 0.5px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 18px;
+  cursor: pointer;
+  transition: border-color 0.15s, background 0.15s;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  text-decoration: none;
+}
+.topic-card:hover { border-color: var(--border2); background: var(--bg3); }
+.topic-card.active { border-color: var(--red); background: var(--red-bg); }
+.topic-card i { font-size: 22px; color: var(--text2); }
+.topic-card .tc-title { font-size: 14px; font-weight: 500; color: var(--text); }
+.topic-card .tc-summary { font-size: 12px; color: var(--text2); line-height: 1.5; }
+.article-panel {
+  background: var(--bg2);
+  border: 0.5px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 28px 32px;
+  display: none;
+}
+.article-panel.active { display: block; animation: slideDown 0.2s ease; }
+.article-panel h2 { font-size: 22px; font-weight: 500; margin-bottom: 10px; }
+.article-panel .lead { font-size: 14px; color: var(--text2); line-height: 1.8; margin-bottom: 24px; padding-bottom: 20px; border-bottom: 0.5px solid var(--border); }
+.article-section { margin-bottom: 24px; }
+.article-section h4 { font-family: var(--mono); font-size: 12px; color: var(--text3); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px; }
+.article-section p { font-size: 14px; color: var(--text2); line-height: 1.8; }
+.cycle-diagram {
+  display: flex;
+  gap: 0;
+  margin: 20px 0;
+  overflow-x: auto;
+}
+.cycle-phase {
+  flex: 1;
+  min-width: 130px;
+  padding: 14px 12px;
+  text-align: center;
+  position: relative;
+}
+.cycle-phase::after {
+  content: '→';
+  position: absolute;
+  right: -6px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--text3);
+  font-size: 14px;
+  z-index: 1;
+}
+.cycle-phase:last-child::after { display: none; }
+.cycle-phase .cp-num { font-family: var(--mono); font-size: 10px; color: var(--text3); margin-bottom: 6px; }
+.cycle-phase .cp-name { font-size: 13px; font-weight: 500; margin-bottom: 4px; }
+.cycle-phase .cp-desc { font-size: 11px; color: var(--text2); line-height: 1.5; }
+.playbook-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 12px; margin-top: 16px; }
+.playbook-card {
+  background: var(--bg3);
+  border: 0.5px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 16px;
+}
+.playbook-card .pc-head { display: flex; align-items: center; gap: 8px; margin-bottom: 10px; }
+.playbook-card .pc-name { font-size: 13px; font-weight: 500; }
+.playbook-card .pc-desc { font-size: 12px; color: var(--text2); margin-bottom: 10px; line-height: 1.6; }
+.playbook-card .pc-examples { font-family: var(--mono); font-size: 11px; color: var(--text3); line-height: 1.8; }
+.playbook-card .pc-examples span { display: block; }
+.playbook-card .pc-examples span::before { content: '"'; }
+.playbook-card .pc-examples span::after { content: '"'; }
+@media (max-width: 600px) {
+  .article-panel { padding: 18px 16px; }
+  .cycle-diagram { flex-direction: column; }
+  .cycle-phase::after { content: '↓'; right: auto; left: 50%; top: auto; bottom: -10px; transform: translateX(-50%); }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a class="nav-logo" href="index.html">Pattern<span>Match</span></a>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="index.html">Analyzer</a></li>
+      <li><a href="journal.html">Journal</a></li>
+      <li><a href="learn.html">Learn</a></li>
+      <li><a href="safety.html">Safety Plan</a></li>
+      <li><a href="resources.html">Get Help</a></li>
+    </ul>
+    <a class="nav-emergency" href="resources.html#crisis">⚑ Crisis Help</a>
+    <button class="nav-hamburger" id="nav-ham" aria-label="Menu"><i class="ti ti-menu-2"></i></button>
+  </div>
+</nav>
+
+<main>
+  <div class="container">
+
+    <div class="page-header">
+      <div class="label">// educational resources</div>
+      <h1>Understanding Emotional Abuse</h1>
+      <p>Knowledge is the first step. Naming what is happening to you strips it of some of its power. Select a topic below.</p>
+    </div>
+
+    <div class="topic-grid" id="topicGrid"></div>
+    <div id="articleArea"></div>
+
+    <hr>
+
+    <div style="margin-top:36px;">
+      <div class="panel-label" style="margin-bottom:16px;">// the manipulation playbook — what PatternMatch detects</div>
+      <div class="playbook-grid" id="playbookGrid"></div>
+    </div>
+
+  </div>
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <span>PatternMatch — open source, no server, no tracking</span>
+    <span>If you're in danger: <a href="tel:18007997233">1-800-799-7233</a> · <a href="resources.html">more resources</a></span>
+  </div>
+</footer>
+
+<script src="./js/engine.js"></script>
+<script src="./js/ui.js"></script>
+<script>
+const ARTICLES = [
+  {
+    id: "what-is-emotional-abuse",
+    title: "What Is Emotional Abuse?",
+    icon: "ti-info-circle",
+    summary: "Emotional abuse is a pattern of behavior that harms a person's emotional health and sense of self-worth. Unlike physical violence, it leaves no visible marks — making it harder to recognize and harder for others to validate.",
+    sections: [
+      { heading: "The core of emotional abuse", text: "Emotional abuse is defined by its pattern, not by individual incidents. One harsh argument isn't abuse. A sustained campaign of control, humiliation, manipulation, and isolation is. Abusers use psychological tactics to make their targets feel confused, worthless, or dependent." },
+      { heading: "It's about power and control", text: "Every tactic in emotional abuse serves the same goal: to maintain the abuser's power over the target. Gaslighting makes you doubt your reality. Isolation removes your support. Ultimatums force compliance. Love bombing resets the cycle. These aren't random outbursts — they're a system." },
+      { heading: "Why it's hard to recognize", text: "Emotional abuse often escalates slowly. By the time it's severe, you've already normalized much of it. The abuser frequently frames their behavior as love, concern, or your fault. Many survivors don't identify their experience as abuse until they are safely out." },
+      { heading: "It is not your fault", text: "Nothing you did, said, or failed to say caused the abuse. Abusers choose their behavior. Healthy relationships have conflict — they don't have control. If you feel like you're always walking on eggshells, that feeling is data." }
+    ]
+  },
+  {
+    id: "gaslighting",
+    title: "Understanding Gaslighting",
+    icon: "ti-eye-off",
+    summary: "Gaslighting is psychological manipulation in which an abuser causes a target to question their own memory, perception, and sanity. The term comes from the 1944 film 'Gaslight,' in which a husband dims the lights and denies it when his wife notices.",
+    sections: [
+      { heading: "How it works", text: "The abuser systematically denies events, contradicts your memories, trivializes your feelings, and redirects blame. Over time, you stop trusting your own perception and start relying on the abuser's version of reality — which is exactly the goal." },
+      { heading: "Common phrases", text: "\"You're imagining things.\" \"I never said that.\" \"You're too sensitive.\" \"You're crazy.\" \"Everyone else thinks you overreact.\" \"That's not what happened.\" Used repeatedly, these phrases erode your confidence in your own mind." },
+      { heading: "The long-term damage", text: "Chronic gaslighting can lead to anxiety, depression, and PTSD. Survivors often describe feeling like they 'can't trust themselves' even after leaving the relationship. Recovery involves rebuilding trust in your own perceptions — a process that therapy can accelerate significantly." },
+      { heading: "Grounding yourself", text: "If you suspect you're being gaslit: keep a private journal of events as they happen. Note dates, words used, and how you felt. This creates an external record to counter the internal confusion. Trusted friends and therapists can also serve as reality checks — which is exactly what the PatternMatch analyzer is designed to help with." }
+    ]
+  },
+  {
+    id: "cycle-of-abuse",
+    title: "The Cycle of Abuse",
+    icon: "ti-rotate-clockwise",
+    summary: "Most abusive relationships follow a predictable pattern known as the cycle of abuse, described by researcher Lenore Walker in 1979. Understanding this cycle is often what finally helps survivors recognize their situation.",
+    cycle: [
+      { num: "01", name: "Tension", color: "var(--amber)", desc: "Stress builds. Walking on eggshells. Trying to manage their mood." },
+      { num: "02", name: "Incident", color: "var(--red)", desc: "The abusive episode. Verbal attack, threats, manipulation, or violence." },
+      { num: "03", name: "Reconciliation", color: "var(--teal)", desc: "Apologies, promises, love bombing. Hope that things will change." },
+      { num: "04", name: "Calm", color: "var(--blue)", desc: "False peace. You may doubt the severity. But the cycle repeats." }
+    ],
+    sections: [
+      { heading: "Why the cycle is so powerful", text: "Intermittent reinforcement — alternating punishment and reward — is one of the strongest conditioning mechanisms known. The 'honeymoon' phase after an incident isn't love; it's a reset that makes leaving feel impossible and confusing." },
+      { heading: "Escalation over time", text: "Each cycle typically escalates in severity. The calm phases get shorter. The incidents get worse. What felt like an exception early on becomes the norm. This gradual escalation is by design — it normalizes behavior that would have been immediately recognized as unacceptable at the start." },
+      { heading: "Why people stay", text: "It's not weakness that keeps people in abusive relationships — it's neurochemistry, fear, financial dependence, love, children, housing, immigration status, and genuine hope. The question 'why didn't they just leave?' misunderstands the reality of coercive control." }
+    ]
+  },
+  {
+    id: "coercive-control",
+    title: "Coercive Control",
+    icon: "ti-lock",
+    summary: "Coercive control is a pattern of behavior that seeks to take away the victim's liberty or freedom. It's the framework underlying most sustained abuse — and in several countries and U.S. states, it is now a criminal offense.",
+    sections: [
+      { heading: "What it looks like", text: "Monitoring your location, finances, communications, and social life. Making you ask permission. Controlling what you wear or eat. Isolating you from friends and family. Creating financial dependence. Using children as leverage. Individually, these may seem minor. As a pattern, they constitute a cage." },
+      { heading: "Digital coercive control", text: "Modern abusers use technology: tracking apps, demanding passwords, monitoring social media, flooding phones with messages, using smart home devices to create confusion or discomfort. If your partner uses technology to monitor or control you, that is abuse." },
+      { heading: "The legal landscape", text: "As of 2024, coercive control laws exist in the UK, Ireland, Scotland, Australia, and several U.S. states including California, Connecticut, and Hawaii. More states are considering legislation. Document patterns carefully — screenshots, dates, written descriptions. This documentation matters if you pursue legal action." },
+      { heading: "The goal", text: "Unlike a single incident, coercive control is ongoing. Its goal isn't to hurt you once — it's to dominate your life continuously. Survivors consistently report that the control itself was more damaging than any individual incident." }
+    ]
+  },
+  {
+    id: "leaving-safely",
+    title: "Leaving Safely",
+    icon: "ti-door-exit",
+    summary: "Leaving an abusive relationship is often the most dangerous period for a victim. The risk of violence can escalate when an abuser believes they are losing control. Safety planning before and during leaving is critical.",
+    sections: [
+      { heading: "Before you leave", text: "Build a safety plan with a domestic violence advocate before acting. Gather copies of important documents (ID, passport, birth certificate, financial records) and store them somewhere safe outside the home. Set aside emergency cash if possible. Use PatternMatch's Safety Plan page for a full checklist." },
+      { heading: "Your devices", text: "Abusers often monitor devices. Use a private browser or a device your abuser doesn't have access to when researching resources. Clear your browser history afterward. Change passwords from a device they can't access. Check for tracking apps — some are hidden. Disable location sharing." },
+      { heading: "Build your network quietly", text: "Identify 2–3 trusted people who know your situation. Create a code word you can text or say that means 'call 911' or 'come get me.' Don't rely on a single escape route or person." },
+      { heading: "Children and pets", text: "Abusers often use children and pets as leverage. Contact a DV hotline to understand your legal rights before taking action involving children. Many shelters now accommodate pets — call ahead to ask." },
+      { heading: "After leaving", text: "Leaving doesn't end the risk immediately. Change locks, inform trusted neighbors, notify your workplace, and consider a protective order. The National Domestic Violence Hotline can help with all of these steps and connect you to local resources." }
+    ]
+  },
+  {
+    id: "recovery",
+    title: "Healing & Recovery",
+    icon: "ti-heart",
+    summary: "Recovery from emotional abuse is real and possible. It is nonlinear, deeply personal, and takes longer than most people expect — but survivors consistently report that life after abuse can be genuinely good.",
+    sections: [
+      { heading: "What recovery looks like", text: "Recovery isn't a straight line. You may have good weeks followed by setbacks. Anniversaries, songs, smells, or places can trigger grief or fear. This is not a sign you're 'not over it' — it is your nervous system healing. Progress is rarely visible day-to-day but becomes clear over months." },
+      { heading: "Therapy modalities that help", text: "EMDR (Eye Movement Desensitization and Reprocessing) is highly effective for trauma. CBT helps reframe distorted beliefs the abuse installed. Somatic therapies address the physical dimension of trauma that 'lives in the body.' Look for a therapist who specializes in trauma or domestic abuse — general therapy for a non-specialist can sometimes be less effective." },
+      { heading: "Rebuilding self-trust", text: "Emotional abuse systematically destroys self-trust. A major part of recovery is learning to trust your own perceptions again. Start small: notice a feeling, name it, act on it. Journal. Practice making small decisions independently. The PatternMatch analyzer can help — when you see your own words flagged by an objective tool, it validates what you already knew." },
+      { heading: "You were not broken by this", text: "The abuse changed you — but it did not break you. Survivors demonstrate extraordinary resilience, creativity, and empathy. The same skills you used to navigate an abusive relationship are real strengths. You survived. That is not nothing." }
+    ]
+  }
+];
+
+const PLAYBOOK_CARDS = [
+  { name: "Ultimatums", color: "var(--red)", badge: "badge-red", icon: "ti-alert-triangle", desc: "Conditional threats designed to force compliance through fear of loss or punishment.", examples: ["If you don't answer me right now, we're done.", "Last chance. Make up your mind.", "Or else I'll — "] },
+  { name: "Isolation", color: "var(--amber)", badge: "badge-amber", icon: "ti-user-minus", desc: "Separating the target from their support network to create dependency on the abuser.", examples: ["We don't need anyone else.", "Your friends don't really care about you.", "Choose between us."] },
+  { name: "Gaslighting", color: "var(--purple)", badge: "badge-purple", icon: "ti-eye-off", desc: "Making the target question their own memory, perception, and sanity.", examples: ["I never said that.", "You're misremembering.", "You always blow things out of proportion."] },
+  { name: "Blame Shifting", color: "var(--pink)", badge: "badge-pink", icon: "ti-arrow-back-up", desc: "Deflecting responsibility onto the victim, making them feel at fault.", examples: ["You made me do this.", "You always ruin everything.", "Because of you I have to fix everything."] },
+  { name: "Love Bombing", color: "var(--teal)", badge: "badge-teal", icon: "ti-heart", desc: "Excessive affection used instrumentally to gain compliance or reset the cycle.", examples: ["No one will ever love you like I do.", "I'll change, I promise.", "If you really loved me you would—"] },
+  { name: "Surveillance", color: "var(--blue)", badge: "badge-blue", icon: "ti-map-pin", desc: "Monitoring and tracking used as an instrument of control and intimidation.", examples: ["Where are you? Who are you with?", "Show me your phone.", "I can track your location."] }
+];
+
+let activeArticle = null;
+
+function renderTopics() {
+  document.getElementById('topicGrid').innerHTML = ARTICLES.map((a, i) =>
+    `<div class="topic-card" id="tc-${a.id}" onclick="showArticle('${a.id}')">
+      <i class="ti ${a.icon}" aria-hidden="true"></i>
+      <div class="tc-title">${a.title}</div>
+      <div class="tc-summary" style="display:none">${a.summary}</div>
+    </div>`
+  ).join('');
+}
+
+function showArticle(id) {
+  const article = ARTICLES.find(a => a.id === id);
+  if (!article) return;
+
+  document.querySelectorAll('.topic-card').forEach(c => c.classList.remove('active'));
+  document.getElementById('tc-' + id)?.classList.add('active');
+
+  let cycleHtml = '';
+  if (article.cycle) {
+    cycleHtml = `<div class="cycle-diagram">${article.cycle.map(p =>
+      `<div class="cycle-phase">
+        <div class="cp-num" style="color:${p.color}">${p.num}</div>
+        <div class="cp-name">${p.name}</div>
+        <div class="cp-desc">${p.desc}</div>
+      </div>`
+    ).join('')}</div>`;
+  }
+
+  const sectionsHtml = (article.sections || []).map(s =>
+    `<div class="article-section">
+      <h4>${s.heading}</h4>
+      <p>${s.text}</p>
+    </div>`
+  ).join('');
+
+  document.getElementById('articleArea').innerHTML = `
+    <div class="article-panel active">
+      <h2>${article.title}</h2>
+      <p class="lead">${article.summary}</p>
+      ${cycleHtml}
+      ${sectionsHtml}
+      <div style="margin-top:24px;padding-top:20px;border-top:0.5px solid var(--border);display:flex;gap:8px;flex-wrap:wrap;">
+        <a href="index.html" class="btn"><i class="ti ti-scan"></i> analyze a message</a>
+        <a href="resources.html" class="btn btn-ghost"><i class="ti ti-phone"></i> get help</a>
+      </div>
+    </div>`;
+
+  document.getElementById('articleArea').scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+function renderPlaybook() {
+  document.getElementById('playbookGrid').innerHTML = PLAYBOOK_CARDS.map(c =>
+    `<div class="playbook-card">
+      <div class="pc-head">
+        <span class="badge ${c.badge}"><i class="ti ${c.icon}" style="font-size:12px"></i></span>
+        <span class="pc-name">${c.name}</span>
+      </div>
+      <p class="pc-desc">${c.desc}</p>
+      <div class="pc-examples">${c.examples.map(e => `<span>${e}</span>`).join('')}</div>
+    </div>`
+  ).join('');
+}
+
+renderTopics();
+renderPlaybook();
+
+// Auto-open from hash
+if (window.location.hash) {
+  const id = window.location.hash.replace('#', '');
+  if (ARTICLES.find(a => a.id === id)) {
+    setTimeout(() => showArticle(id), 100);
+  }
+}
+</script>
+
+</body>
+</html>

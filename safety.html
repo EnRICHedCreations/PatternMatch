@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Safety Plan — PatternMatch</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.10.0/dist/tabler-icons.min.css">
+<link rel="stylesheet" href="./css/style.css">
+<style>
+.safety-layout { display: grid; grid-template-columns: 260px 1fr; gap: 24px; align-items: start; }
+.section-nav { position: sticky; top: 72px; }
+.section-nav-list { list-style: none; display: flex; flex-direction: column; gap: 2px; }
+.section-nav-list a {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--mono);
+  font-size: 12px;
+  color: var(--text3);
+  text-decoration: none;
+  padding: 7px 10px;
+  border-radius: var(--radius);
+  transition: background 0.15s, color 0.15s;
+  border-left: 2px solid transparent;
+}
+.section-nav-list a:hover { color: var(--text2); background: var(--bg3); }
+.section-nav-list a.active { color: var(--text); border-left-color: var(--red); background: var(--bg3); }
+.checklist-section { margin-bottom: 32px; }
+.checklist-section-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 14px;
+  padding-bottom: 10px;
+  border-bottom: 0.5px solid var(--border);
+}
+.checklist-section-header i { font-size: 20px; color: var(--text2); }
+.checklist-section-header h3 { font-size: 15px; font-weight: 500; }
+.progress-wrap { margin-bottom: 28px; }
+.progress-label { display: flex; justify-content: space-between; margin-bottom: 8px; font-family: var(--mono); font-size: 12px; color: var(--text2); }
+.progress-track { height: 6px; background: var(--bg4); border-radius: 3px; overflow: hidden; }
+.progress-fill { height: 100%; background: var(--teal); border-radius: 3px; transition: width 0.4s ease; }
+.tip-box {
+  background: var(--bg3);
+  border: 0.5px solid var(--border);
+  border-left: 3px solid var(--amber);
+  border-radius: var(--radius);
+  padding: 12px 14px;
+  font-size: 13px;
+  color: var(--text2);
+  line-height: 1.65;
+  margin-bottom: 28px;
+}
+.tip-box strong { color: var(--amber); font-family: var(--mono); }
+.contacts-section {
+  background: var(--bg2);
+  border: 0.5px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 20px;
+  margin-bottom: 28px;
+}
+.contact-row {
+  display: grid;
+  grid-template-columns: 140px 1fr 1fr;
+  gap: 12px;
+  margin-bottom: 10px;
+  align-items: center;
+}
+.contact-label { font-family: var(--mono); font-size: 11px; color: var(--text3); }
+.contact-row input { height: 34px; padding: 6px 10px; font-size: 13px; }
+.code-word-box {
+  background: var(--bg2);
+  border: 0.5px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 20px;
+  margin-bottom: 28px;
+}
+.code-word-input { display: flex; gap: 10px; align-items: center; margin-top: 10px; }
+.code-word-input input { flex: 1; height: 40px; padding: 8px 12px; font-size: 14px; font-family: var(--mono); }
+.digital-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 10px; margin-bottom: 16px; }
+.digital-card {
+  background: var(--bg3);
+  border: 0.5px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 14px;
+  font-size: 12px;
+}
+.digital-card .dc-title { font-weight: 500; margin-bottom: 6px; font-size: 13px; display: flex; align-items: center; gap: 8px; }
+.digital-card .dc-title i { color: var(--text2); font-size: 16px; }
+.digital-card p { color: var(--text2); line-height: 1.6; }
+@media (max-width: 760px) {
+  .safety-layout { grid-template-columns: 1fr; }
+  .section-nav { display: none; }
+  .contact-row { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a class="nav-logo" href="index.html">Pattern<span>Match</span></a>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="index.html">Analyzer</a></li>
+      <li><a href="journal.html">Journal</a></li>
+      <li><a href="learn.html">Learn</a></li>
+      <li><a href="safety.html">Safety Plan</a></li>
+      <li><a href="resources.html">Get Help</a></li>
+    </ul>
+    <a class="nav-emergency" href="resources.html#crisis">⚑ Crisis Help</a>
+    <button class="nav-hamburger" id="nav-ham" aria-label="Menu"><i class="ti ti-menu-2"></i></button>
+  </div>
+</nav>
+
+<main>
+  <div class="container">
+
+    <div class="page-header">
+      <div class="label">// safety planning</div>
+      <h1>Safety Plan</h1>
+      <p>A safety plan is a personalized, practical plan to protect yourself. Check off items as you complete them. Your progress is saved locally in this browser only.</p>
+    </div>
+
+    <div class="crisis-banner">
+      <i class="ti ti-alert-triangle" aria-hidden="true"></i>
+      <div class="crisis-banner-text">
+        <strong>For personalized safety planning with a trained advocate, call the National Domestic Violence Hotline: 1-800-799-7233.</strong>
+        They can help you create a safety plan tailored to your specific situation, including children, finances, and local resources.
+      </div>
+    </div>
+
+    <div class="safety-layout">
+
+      <!-- SIDEBAR NAV -->
+      <div class="section-nav">
+        <div class="panel-label">sections</div>
+        <ul class="section-nav-list">
+          <li><a href="#documents" id="nav-documents"><i class="ti ti-id" aria-hidden="true"></i> Documents</a></li>
+          <li><a href="#digital" id="nav-digital"><i class="ti ti-device-mobile" aria-hidden="true"></i> Digital Safety</a></li>
+          <li><a href="#network" id="nav-network"><i class="ti ti-users" aria-hidden="true"></i> Support Network</a></li>
+          <li><a href="#finances" id="nav-finances"><i class="ti ti-credit-card" aria-hidden="true"></i> Finances</a></li>
+          <li><a href="#physical" id="nav-physical"><i class="ti ti-home" aria-hidden="true"></i> Physical Safety</a></li>
+          <li><a href="#contacts" id="nav-contacts"><i class="ti ti-address-book" aria-hidden="true"></i> Emergency Contacts</a></li>
+          <li><a href="#codeword" id="nav-codeword"><i class="ti ti-key" aria-hidden="true"></i> Code Word</a></li>
+        </ul>
+        <div style="margin-top:20px;">
+          <div class="progress-label"><span>overall progress</span><span id="sidebarPct">0%</span></div>
+          <div class="progress-track"><div class="progress-fill" id="sidebarBar" style="width:0%"></div></div>
+        </div>
+        <div style="margin-top:12px;display:flex;flex-direction:column;gap:6px;">
+          <button class="btn btn-ghost" style="font-size:11px;justify-content:center;" onclick="exportSafetyPlan()"><i class="ti ti-download"></i> export plan</button>
+          <button class="btn btn-ghost" style="font-size:11px;justify-content:center;color:var(--red);" onclick="confirmClearChecklist()"><i class="ti ti-refresh"></i> reset</button>
+        </div>
+      </div>
+
+      <!-- MAIN CONTENT -->
+      <div>
+
+        <div class="progress-wrap">
+          <div class="progress-label">
+            <span style="font-family:var(--mono);font-size:12px;">checklist progress</span>
+            <span style="font-family:var(--mono);font-size:12px;" id="progressLabel">0 / 0 completed</span>
+          </div>
+          <div class="progress-track"><div class="progress-fill" id="progressBar"></div></div>
+        </div>
+
+        <!-- DOCUMENTS -->
+        <div class="checklist-section" id="documents">
+          <div class="checklist-section-header">
+            <i class="ti ti-id" aria-hidden="true"></i>
+            <h3>Documents</h3>
+          </div>
+          <div class="tip-box"><strong>tip //</strong> Store copies outside your home — with a trusted person, in a safe deposit box, or in a secure cloud account your partner cannot access.</div>
+          <div id="checklist-documents"></div>
+        </div>
+
+        <!-- DIGITAL SAFETY -->
+        <div class="checklist-section" id="digital">
+          <div class="checklist-section-header">
+            <i class="ti ti-device-mobile" aria-hidden="true"></i>
+            <h3>Digital Safety</h3>
+          </div>
+          <div class="tip-box"><strong>tip //</strong> If you are using a shared or monitored device to read this page, use your browser's private/incognito mode and clear your history afterward. Go to browser settings → History → Clear browsing data.</div>
+          <div class="digital-grid">
+            <div class="digital-card">
+              <div class="dc-title"><i class="ti ti-map-pin-off"></i> Location</div>
+              <p>Check Settings → Privacy → Location Services. Review which apps have access. Check if your partner's phone is linked to family location sharing.</p>
+            </div>
+            <div class="digital-card">
+              <div class="dc-title"><i class="ti ti-app-window"></i> Tracking Apps</div>
+              <p>On iPhone: Settings → Privacy → check for unfamiliar apps. On Android: Settings → Apps → look for spyware like mSpy, FlexiSpy, or Cerberus.</p>
+            </div>
+            <div class="digital-card">
+              <div class="dc-title"><i class="ti ti-lock-password"></i> Passwords</div>
+              <p>Change passwords from a safe device. Use a new email they don't know about. Enable two-factor authentication on accounts they may know about.</p>
+            </div>
+            <div class="digital-card">
+              <div class="dc-title"><i class="ti ti-cloud"></i> Cloud Accounts</div>
+              <p>Shared Apple ID or Google account = shared photos, messages, location. Create your own account and sign out of shared accounts from a safe device.</p>
+            </div>
+          </div>
+          <div id="checklist-digital"></div>
+        </div>
+
+        <!-- SUPPORT NETWORK -->
+        <div class="checklist-section" id="network">
+          <div class="checklist-section-header">
+            <i class="ti ti-users" aria-hidden="true"></i>
+            <h3>Support Network</h3>
+          </div>
+          <div id="checklist-network"></div>
+        </div>
+
+        <!-- FINANCES -->
+        <div class="checklist-section" id="finances">
+          <div class="checklist-section-header">
+            <i class="ti ti-credit-card" aria-hidden="true"></i>
+            <h3>Finances</h3>
+          </div>
+          <div class="tip-box"><strong>tip //</strong> Financial abuse is extremely common. If your partner controls all money or has made you financially dependent, a DV advocate can connect you with emergency funds and financial assistance programs.</div>
+          <div id="checklist-finances"></div>
+        </div>
+
+        <!-- PHYSICAL SAFETY -->
+        <div class="checklist-section" id="physical">
+          <div class="checklist-section-header">
+            <i class="ti ti-home" aria-hidden="true"></i>
+            <h3>Physical Safety</h3>
+          </div>
+          <div id="checklist-physical"></div>
+        </div>
+
+        <!-- EMERGENCY CONTACTS -->
+        <div class="contacts-section" id="contacts">
+          <div class="checklist-section-header" style="border-bottom:none;margin-bottom:16px;padding-bottom:0;">
+            <i class="ti ti-address-book" aria-hidden="true"></i>
+            <h3>Emergency Contacts</h3>
+          </div>
+          <p style="font-size:13px;color:var(--text2);margin-bottom:16px;">Write down trusted people who can help. This is saved locally in your browser only.</p>
+          <div id="contactRows"></div>
+          <button class="btn" onclick="addContactRow()" style="margin-top:8px;font-size:11px;"><i class="ti ti-plus"></i> add contact</button>
+        </div>
+
+        <!-- CODE WORD -->
+        <div class="code-word-box" id="codeword">
+          <div class="checklist-section-header" style="border-bottom:none;margin-bottom:8px;padding-bottom:0;">
+            <i class="ti ti-key" aria-hidden="true"></i>
+            <h3>Code Word</h3>
+          </div>
+          <p style="font-size:13px;color:var(--text2);line-height:1.65;margin-bottom:12px;">A code word is a word or phrase you can text to a trusted person that means "I am in danger, call for help" or "come get me now." Choose something natural — a word you might use in regular conversation.</p>
+          <div class="code-word-input">
+            <input type="text" id="codeWordInput" placeholder="e.g. sunflower, umbrella, call me about Thursday..." maxlength="100">
+            <button class="btn" onclick="saveCodeWord()"><i class="ti ti-check"></i> save</button>
+          </div>
+          <p style="font-size:11px;font-family:var(--mono);color:var(--text3);margin-top:8px;" id="codeWordSaved"></p>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <span>PatternMatch — open source, no server, no tracking</span>
+    <span>If you're in danger: <a href="tel:18007997233">1-800-799-7233</a> · <a href="resources.html">more resources</a></span>
+  </div>
+</footer>
+
+<script src="./js/engine.js"></script>
+<script src="./js/ui.js"></script>
+<script>
+const CHECKLIST = {
+  documents: [
+    "Photo ID / Driver's License — copy stored safely outside home",
+    "Passport — stored safely",
+    "Birth certificate (yours and children's) — stored safely",
+    "Social Security card — stored safely",
+    "Bank account numbers and access information noted",
+    "Insurance cards and policy numbers copied",
+    "Lease, mortgage, or property documents",
+    "Children's school records and medical records",
+    "Immigration documents (if applicable)"
+  ],
+  digital: [
+    "Changed email password from a safe device",
+    "Changed social media passwords (Facebook, Instagram, etc.)",
+    "Checked for tracking / spyware apps on phone",
+    "Disabled location sharing with partner",
+    "Created a private email account they don't know about",
+    "Cleared browser history after researching",
+    "Reviewed cloud account access (Apple ID, Google account)",
+    "Checked if smart home devices could be misused"
+  ],
+  network: [
+    "Identified 2+ trusted people who know my situation",
+    "Shared my safety plan (or parts of it) with a trusted person",
+    "Established a code word for emergencies",
+    "Saved crisis hotline numbers in phone",
+    "Spoken with a DV advocate",
+    "Identified a safe place I can go immediately if needed",
+    "Have a transportation plan (car, rideshare, friend)"
+  ],
+  finances: [
+    "Opened an individual bank account they don't have access to",
+    "Set aside some emergency cash in a safe location",
+    "Know my credit score and have access to credit report",
+    "Know which bank accounts and assets are joint",
+    "Understand my name is on or removed from shared accounts",
+    "Know where financial documents are kept",
+    "Connected with a DV financial advocate if needed"
+  ],
+  physical: [
+    "Know all exit routes from my home",
+    "Have a packed bag ready or hidden (or know exactly what to grab)",
+    "Know the address of the nearest DV shelter",
+    "Have a plan for children and/or pets",
+    "Trusted neighbor or friend is aware and can call 911",
+    "Considered whether I need a protective or restraining order",
+    "Know the non-emergency police number for my area"
+  ]
+};
+
+let totalItems = 0;
+let completedItems = 0;
+
+function renderChecklist(sectionId, items) {
+  const container = document.getElementById('checklist-' + sectionId);
+  if (!container) return;
+  container.innerHTML = items.map((item, idx) => {
+    const id = sectionId + '-' + idx;
+    const checked = PM.checklist.isChecked(id);
+    if (checked) completedItems++;
+    totalItems++;
+    return `<div class="checklist-item${checked ? ' checked' : ''}" id="ci-${id}" onclick="toggleItem('${id}')">
+      <div class="checklist-box"></div>
+      <span class="checklist-text">${item}</span>
+    </div>`;
+  }).join('');
+}
+
+function toggleItem(id) {
+  const isNowChecked = PM.checklist.toggle(id);
+  const el = document.getElementById('ci-' + id);
+  if (el) el.classList.toggle('checked', isNowChecked);
+  recalcProgress();
+}
+
+function recalcProgress() {
+  const checked = PM.checklist.getChecked();
+  completedItems = checked.length;
+  const pct = totalItems > 0 ? Math.round((completedItems / totalItems) * 100) : 0;
+  document.getElementById('progressLabel').textContent = `${completedItems} / ${totalItems} completed`;
+  document.getElementById('progressBar').style.width = pct + '%';
+  document.getElementById('sidebarBar').style.width = pct + '%';
+  document.getElementById('sidebarPct').textContent = pct + '%';
+}
+
+function renderContactRows() {
+  const saved = JSON.parse(localStorage.getItem('pm_contacts') || '[]');
+  const container = document.getElementById('contactRows');
+  let rows = saved.length > 0 ? saved : [{ role: '', name: '', phone: '' }];
+  container.innerHTML = rows.map((r, i) =>
+    `<div class="contact-row">
+      <input type="text" placeholder="Role (e.g. sister)" value="${PM.escape(r.role || '')}" oninput="saveContacts()" id="cr-role-${i}">
+      <input type="text" placeholder="Name" value="${PM.escape(r.name || '')}" oninput="saveContacts()" id="cr-name-${i}">
+      <input type="text" placeholder="Phone number" value="${PM.escape(r.phone || '')}" oninput="saveContacts()" id="cr-phone-${i}">
+    </div>`
+  ).join('');
+}
+
+function addContactRow() {
+  const container = document.getElementById('contactRows');
+  const i = container.querySelectorAll('.contact-row').length;
+  const row = document.createElement('div');
+  row.className = 'contact-row';
+  row.innerHTML = `<input type="text" placeholder="Role (e.g. sister)" id="cr-role-${i}" oninput="saveContacts()">
+    <input type="text" placeholder="Name" id="cr-name-${i}" oninput="saveContacts()">
+    <input type="text" placeholder="Phone number" id="cr-phone-${i}" oninput="saveContacts()">`;
+  container.appendChild(row);
+}
+
+function saveContacts() {
+  const rows = document.querySelectorAll('.contact-row');
+  const data = Array.from(rows).map((_, i) => ({
+    role: document.getElementById('cr-role-' + i)?.value || '',
+    name: document.getElementById('cr-name-' + i)?.value || '',
+    phone: document.getElementById('cr-phone-' + i)?.value || ''
+  }));
+  localStorage.setItem('pm_contacts', JSON.stringify(data));
+}
+
+function saveCodeWord() {
+  const val = document.getElementById('codeWordInput').value.trim();
+  if (!val) return;
+  localStorage.setItem('pm_codeword', val);
+  document.getElementById('codeWordSaved').textContent = '// saved locally ✓ — share this word with your trusted contact';
+}
+
+function loadCodeWord() {
+  const saved = localStorage.getItem('pm_codeword');
+  if (saved) {
+    document.getElementById('codeWordInput').value = saved;
+    document.getElementById('codeWordSaved').textContent = '// code word saved';
+  }
+}
+
+function confirmClearChecklist() {
+  if (confirm('Reset all checklist progress? This cannot be undone.')) {
+    PM.checklist.clear ? PM.checklist.clear() : localStorage.removeItem('pm_checklist');
+    location.reload();
+  }
+}
+
+function exportSafetyPlan() {
+  const checked = PM.checklist.getChecked();
+  const contacts = JSON.parse(localStorage.getItem('pm_contacts') || '[]');
+  const codeWord = localStorage.getItem('pm_codeword') || '[not set]';
+  const lines = [
+    'PATTERNMATCH SAFETY PLAN',
+    '='.repeat(40),
+    `Date: ${new Date().toLocaleString()}`,
+    `Progress: ${completedItems}/${totalItems} items completed`,
+    '',
+    ...Object.entries(CHECKLIST).flatMap(([section, items]) => [
+      section.toUpperCase() + ':',
+      ...items.map((item, i) => {
+        const id = section + '-' + i;
+        return (checked.includes(id) ? '  [x] ' : '  [ ] ') + item;
+      }),
+      ''
+    ]),
+    'EMERGENCY CONTACTS:',
+    ...contacts.filter(c => c.name).map(c => `  ${c.role}: ${c.name} — ${c.phone}`),
+    '',
+    `CODE WORD: ${codeWord}`,
+    '',
+    '='.repeat(40),
+    'National DV Hotline: 1-800-799-7233',
+    'Crisis Text Line: Text HOME to 741741',
+    'PatternMatch — patternmatch.app'
+  ];
+  const blob = new Blob([lines.join('\n')], { type: 'text/plain' });
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = 'safety-plan-' + new Date().toISOString().slice(0, 10) + '.txt';
+  a.click();
+}
+
+// Init
+Object.entries(CHECKLIST).forEach(([section, items]) => renderChecklist(section, items));
+recalcProgress();
+renderContactRows();
+loadCodeWord();
+</script>
+
+</body>
+</html>

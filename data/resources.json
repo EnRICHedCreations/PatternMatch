@@ -1,0 +1,299 @@
+{
+  "hotlines": [
+    {
+      "name": "National Domestic Violence Hotline",
+      "phone": "1-800-799-7233",
+      "text": "Text START to 88788",
+      "chat": "thehotline.org",
+      "hours": "24/7",
+      "description": "Confidential support, safety planning, and local resources for anyone experiencing domestic violence.",
+      "tags": ["domestic violence", "safety planning", "crisis"]
+    },
+    {
+      "name": "Crisis Text Line",
+      "phone": null,
+      "text": "Text HOME to 741741",
+      "chat": "crisistextline.org",
+      "hours": "24/7",
+      "description": "Free, confidential crisis counseling via text message. Available for any emotional crisis.",
+      "tags": ["crisis", "text-based", "emotional abuse"]
+    },
+    {
+      "name": "RAINN National Sexual Assault Hotline",
+      "phone": "1-800-656-4673",
+      "text": null,
+      "chat": "rainn.org/get-help",
+      "hours": "24/7",
+      "description": "Confidential support from trained staff. Routes callers to local affiliate sexual assault service providers.",
+      "tags": ["sexual assault", "crisis", "local resources"]
+    },
+    {
+      "name": "loveisrespect (Teen Dating Violence)",
+      "phone": "1-866-331-9474",
+      "text": "Text LOVEIS to 22522",
+      "chat": "loveisrespect.org",
+      "hours": "24/7",
+      "description": "Peer advocates for young people experiencing dating abuse. Highly trained, non-judgmental support.",
+      "tags": ["teen", "dating abuse", "young adults"]
+    },
+    {
+      "name": "National Alliance on Mental Illness (NAMI)",
+      "phone": "1-800-950-6264",
+      "text": "Text NAMI to 741741",
+      "chat": "nami.org",
+      "hours": "Mon–Fri, 10am–10pm ET",
+      "description": "Mental health support, resources, and education for those affected by mental illness, including trauma from abuse.",
+      "tags": ["mental health", "PTSD", "trauma"]
+    },
+    {
+      "name": "National Human Trafficking Hotline",
+      "phone": "1-888-373-7888",
+      "text": "Text 233733",
+      "chat": "humantraffickinghotline.org",
+      "hours": "24/7",
+      "description": "Support and resources for trafficking victims and survivors, and to report tips.",
+      "tags": ["trafficking", "coercive control", "crisis"]
+    },
+    {
+      "name": "StrongHearts Native Helpline",
+      "phone": "1-844-762-8483",
+      "text": null,
+      "chat": "strongheartshelpline.org",
+      "hours": "24/7",
+      "description": "Domestic, dating, and sexual violence helpline for Native Americans and Alaska Natives.",
+      "tags": ["Native American", "domestic violence", "cultural"]
+    },
+    {
+      "name": "LGBT National Hotline",
+      "phone": "1-888-843-4564",
+      "text": null,
+      "chat": "lgbthotline.org",
+      "hours": "Mon–Fri 4pm–Midnight ET, Sat Noon–5pm ET",
+      "description": "Peer support for LGBT community members dealing with relationship abuse, coming out, and other challenges.",
+      "tags": ["LGBTQ+", "peer support", "relationship abuse"]
+    },
+    {
+      "name": "National Alliance for Eating Disorders",
+      "phone": "1-866-662-1235",
+      "text": null,
+      "chat": "allianceforeatingdisorders.com",
+      "hours": "Mon–Fri 9am–7pm ET",
+      "description": "Support for those suffering from eating disorders, which can co-occur with or be exacerbated by abusive relationships.",
+      "tags": ["eating disorders", "co-occurring", "mental health"]
+    }
+  ],
+  "educational": [
+    {
+      "id": "what-is-emotional-abuse",
+      "title": "What Is Emotional Abuse?",
+      "icon": "ti-info-circle",
+      "summary": "Emotional abuse is a pattern of behavior that harms a person's emotional health and sense of self-worth. Unlike physical violence, it leaves no visible marks — which can make it harder to recognize and harder for others to validate.",
+      "body": [
+        {
+          "heading": "The core of emotional abuse",
+          "text": "Emotional abuse is defined by its pattern, not by individual incidents. One harsh argument isn't abuse. A sustained campaign of control, humiliation, manipulation, and isolation is. Abusers use psychological tactics to make their targets feel confused, worthless, or dependent."
+        },
+        {
+          "heading": "It's about power and control",
+          "text": "Every tactic in emotional abuse serves the same goal: to maintain the abuser's power over the target. Gaslighting makes you doubt your reality. Isolation removes your support. Ultimatums force compliance. Love bombing resets the cycle. These aren't random outbursts — they're a system."
+        },
+        {
+          "heading": "Why it's hard to recognize",
+          "text": "Emotional abuse often escalates slowly. By the time it's severe, you've already normalized much of it. The abuser frequently frames their behavior as love, concern, or your fault. Many survivors don't identify their experience as abuse until they are safely out."
+        },
+        {
+          "heading": "It's not your fault",
+          "text": "Nothing you did, said, or failed to say caused the abuse. Abusers choose their behavior. Healthy relationships have conflict — they don't have control. If you feel like you're always walking on eggshells, that feeling is data."
+        }
+      ]
+    },
+    {
+      "id": "gaslighting-explained",
+      "title": "Understanding Gaslighting",
+      "icon": "ti-eye-off",
+      "summary": "Gaslighting is a form of psychological manipulation in which an abuser causes a target to question their own memory, perception, and sanity. The term comes from the 1944 film 'Gaslight,' in which a husband dims the gas lights and denies it when his wife notices.",
+      "body": [
+        {
+          "heading": "How it works",
+          "text": "The abuser systematically denies events, contradicts your memories, trivializes your feelings, and redirects blame. Over time, you stop trusting your own perception and start relying on the abuser's version of reality — which is exactly the goal."
+        },
+        {
+          "heading": "Common phrases",
+          "text": "\"You're imagining things.\" \"I never said that.\" \"You're too sensitive.\" \"You're crazy.\" \"Everyone else thinks you overreact.\" \"That's not what happened.\" These phrases, used repeatedly, erode your confidence in your own mind."
+        },
+        {
+          "heading": "The long-term damage",
+          "text": "Chronic gaslighting can lead to anxiety, depression, and PTSD. Survivors often describe feeling like they 'can't trust themselves' even after leaving the relationship. Recovery involves rebuilding trust in your own perceptions — a process that therapy can accelerate significantly."
+        },
+        {
+          "heading": "Grounding yourself",
+          "text": "If you suspect you're being gaslit: keep a private journal of events as they happen. Note dates, words used, and how you felt. This creates an external record to counter the internal confusion. Trusted friends and therapists can also serve as reality checks."
+        }
+      ]
+    },
+    {
+      "id": "cycle-of-abuse",
+      "title": "The Cycle of Abuse",
+      "icon": "ti-rotate-clockwise",
+      "summary": "Most abusive relationships follow a predictable pattern known as the 'cycle of abuse,' described by researcher Lenore Walker in 1979. Understanding this cycle is often what finally helps survivors recognize their situation.",
+      "body": [
+        {
+          "heading": "Phase 1: Tension building",
+          "text": "Stress increases. The abuser becomes irritable, demanding, and unpredictable. The target walks on eggshells, trying to manage the abuser's moods and avoid triggering an outburst. This phase can last days, weeks, or months."
+        },
+        {
+          "heading": "Phase 2: The incident",
+          "text": "The abusive episode occurs — verbal attacks, threats, manipulation, or physical violence. The abuser may seem to 'snap' or act with cold deliberateness. Afterward, the target is often in shock, confusion, or fear."
+        },
+        {
+          "heading": "Phase 3: Reconciliation (the 'honeymoon')",
+          "text": "The abuser apologizes, makes promises, or minimizes what happened. They may be unusually loving, attentive, or generous. This is the 'love bombing' phase. It gives the target hope that the relationship can be what it was — or what they believed it could be."
+        },
+        {
+          "heading": "Phase 4: Calm",
+          "text": "A period of relative peace follows, during which the target may doubt the severity of what happened. But the cycle always repeats. Each cycle often escalates in severity over time."
+        },
+        {
+          "heading": "Why people stay",
+          "text": "The cycle creates powerful psychological bonds. Intermittent reinforcement (alternating punishment and reward) is one of the strongest conditioning mechanisms known. It's not weakness that keeps people in abusive relationships — it's neurochemistry, fear, financial dependence, love, and hope."
+        }
+      ]
+    },
+    {
+      "id": "coercive-control",
+      "title": "Coercive Control",
+      "icon": "ti-lock",
+      "summary": "Coercive control is a pattern of behavior that seeks to take away the victim's liberty or freedom. It's the framework underlying most sustained abuse — and in several countries and U.S. states, it's now a criminal offense.",
+      "body": [
+        {
+          "heading": "What it looks like",
+          "text": "Monitoring your location, finances, communications, and social life. Making you ask permission. Controlling what you wear or eat. Isolating you from friends and family. Creating financial dependence. Using children as leverage. These behaviors, individually, may seem trivial. As a pattern, they constitute a cage."
+        },
+        {
+          "heading": "The goal",
+          "text": "Unlike a single incident of violence, coercive control is ongoing. Its goal isn't to hurt you once — it's to dominate your life continuously. Survivors often report that the control itself was more damaging than any individual incident."
+        },
+        {
+          "heading": "Digital coercive control",
+          "text": "Modern abusers use technology: tracking apps, demanding passwords, monitoring social media, flooding phones with messages, using smart home devices to create confusion or discomfort. If your partner uses technology to monitor or control you, that is abuse."
+        },
+        {
+          "heading": "Legal landscape",
+          "text": "As of 2024, coercive control laws exist in the UK, Ireland, Scotland, Australia, and several U.S. states including California, Connecticut, and Hawaii. More states are considering legislation. Document patterns carefully — screenshots, dates, descriptions."
+        }
+      ]
+    },
+    {
+      "id": "leaving-safely",
+      "title": "Leaving Safely",
+      "icon": "ti-door-exit",
+      "summary": "Leaving an abusive relationship is often the most dangerous period for a victim. The risk of violence escalates when an abuser believes they are losing control. Safety planning before and during leaving is critical.",
+      "body": [
+        {
+          "heading": "Before you leave",
+          "text": "Build a safety plan with a domestic violence advocate before acting. Gather copies of important documents (ID, passport, birth certificate, financial records) and store them somewhere safe, ideally outside the home. Set aside emergency cash if possible."
+        },
+        {
+          "heading": "Trusted people",
+          "text": "Identify 2-3 trusted people who know your situation and can help. Create a code word you can text or say that means 'call 911' or 'come get me.' Don't rely on a single escape route."
+        },
+        {
+          "heading": "Your devices",
+          "text": "Abusers often monitor devices. Use a private browser or a device your abuser doesn't have access to when researching resources. Clear your browser history afterward. Change passwords from a device they can't access. Disable location sharing."
+        },
+        {
+          "heading": "Children and pets",
+          "text": "Abusers often use children and pets as leverage. Contact a DV hotline to understand your legal rights before taking any action involving children. Many shelters now accommodate pets."
+        },
+        {
+          "heading": "After leaving",
+          "text": "Leaving doesn't end the risk immediately. Change locks, inform trusted neighbors, notify your workplace, and consider a protective order. The National Domestic Violence Hotline can help with all of these steps."
+        }
+      ]
+    },
+    {
+      "id": "recovery",
+      "title": "Healing & Recovery",
+      "icon": "ti-heart",
+      "summary": "Recovery from emotional abuse is real and possible. It is also nonlinear, deeply personal, and takes longer than most people expect — but survivors consistently report that life after abuse can be genuinely good.",
+      "body": [
+        {
+          "heading": "What recovery looks like",
+          "text": "Recovery isn't a straight line. You may have good weeks followed by setbacks. Anniversaries, songs, smells, or places can trigger grief or fear. This is normal. It doesn't mean you're 'not over it' — it means your nervous system is healing."
+        },
+        {
+          "heading": "Therapy modalities that help",
+          "text": "EMDR (Eye Movement Desensitization and Reprocessing) is highly effective for trauma. CBT (Cognitive Behavioral Therapy) helps reframe distorted beliefs the abuse installed. Somatic therapies address the physical dimension of trauma that 'lives in the body.' Look for a therapist who specializes in trauma or domestic abuse."
+        },
+        {
+          "heading": "Rebuilding self-trust",
+          "text": "Emotional abuse systematically destroys self-trust. A major part of recovery is learning to trust your own perceptions again. Start small: notice a feeling, name it, act on it. Journal. Practice making small decisions independently. Every time you trust yourself and it works out, you're rebuilding."
+        },
+        {
+          "heading": "Community",
+          "text": "Peer support groups (in-person and online) connect you with survivors who understand what you've been through without you having to explain. Organizations like the National DV Hotline, RAINN, and loveisrespect have referral networks for local support groups."
+        },
+        {
+          "heading": "You were not broken by this",
+          "text": "The abuse changed you — but it did not break you. Survivors demonstrate extraordinary resilience, creativity, and empathy. The same skills you used to navigate an abusive relationship are strengths. You survived. That is not nothing."
+        }
+      ]
+    }
+  ],
+  "safety_checklist": [
+    {
+      "category": "Documents",
+      "items": [
+        "ID / Driver's License copied",
+        "Passport stored safely",
+        "Birth certificate stored safely",
+        "Social security card stored safely",
+        "Bank account numbers and access",
+        "Insurance cards / policy numbers",
+        "Lease or mortgage documents"
+      ]
+    },
+    {
+      "category": "Digital Safety",
+      "items": [
+        "Changed email password (from safe device)",
+        "Changed social media passwords",
+        "Checked for tracking apps on phone",
+        "Disabled location sharing with partner",
+        "Created private email account",
+        "Cleared browser history after research",
+        "Reviewed cloud backup access"
+      ]
+    },
+    {
+      "category": "Support Network",
+      "items": [
+        "Identified 2+ trusted people",
+        "Shared safety plan with trusted person",
+        "Established a code word for emergencies",
+        "Saved hotline numbers in phone",
+        "Connected with a DV advocate"
+      ]
+    },
+    {
+      "category": "Finances",
+      "items": [
+        "Opened individual bank account",
+        "Set aside emergency cash",
+        "Know your credit score",
+        "Have access to at least some funds",
+        "Understand joint account status"
+      ]
+    },
+    {
+      "category": "Physical Safety",
+      "items": [
+        "Know your exit routes from home",
+        "Have a bag packed (or accessible)",
+        "Know the address of nearest DV shelter",
+        "Have transportation arranged or planned",
+        "Informed a neighbor or friend"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Get Help — PatternMatch</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.10.0/dist/tabler-icons.min.css">
+<link rel="stylesheet" href="./css/style.css">
+<style>
+.crisis-section {
+  background: rgba(226,75,74,0.06);
+  border: 1px solid rgba(226,75,74,0.25);
+  border-radius: var(--radius-lg);
+  padding: 28px 32px;
+  margin-bottom: 40px;
+}
+.crisis-section h2 { font-size: 20px; font-weight: 500; color: var(--red); margin-bottom: 8px; display: flex; align-items: center; gap: 10px; }
+.crisis-section p { font-size: 14px; color: var(--text2); margin-bottom: 20px; line-height: 1.7; }
+.crisis-hotlines { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px; }
+.crisis-card {
+  background: var(--bg);
+  border: 0.5px solid rgba(226,75,74,0.2);
+  border-radius: var(--radius-lg);
+  padding: 16px;
+}
+.crisis-card .cn { font-size: 13px; font-weight: 500; margin-bottom: 8px; }
+.crisis-card a {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--mono);
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--red);
+  text-decoration: none;
+  margin-bottom: 4px;
+}
+.crisis-card a:hover { color: #f07070; }
+.crisis-card .cd { font-size: 11px; color: var(--text3); margin-top: 4px; font-family: var(--mono); }
+.hotlines-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 14px; margin-bottom: 40px; }
+.tab-group { margin-bottom: 28px; }
+.section-label {
+  font-family: var(--mono);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+  color: var(--text3);
+  margin-bottom: 16px;
+  padding-bottom: 10px;
+  border-bottom: 0.5px solid var(--border);
+}
+.what-to-expect {
+  background: var(--bg2);
+  border: 0.5px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 24px;
+  margin-bottom: 32px;
+}
+.expect-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; margin-top: 16px; }
+.expect-item { display: flex; flex-direction: column; gap: 8px; }
+.expect-item i { font-size: 22px; color: var(--teal); }
+.expect-item .ei-title { font-size: 13px; font-weight: 500; }
+.expect-item .ei-text { font-size: 12px; color: var(--text2); line-height: 1.65; }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a class="nav-logo" href="index.html">Pattern<span>Match</span></a>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="index.html">Analyzer</a></li>
+      <li><a href="journal.html">Journal</a></li>
+      <li><a href="learn.html">Learn</a></li>
+      <li><a href="safety.html">Safety Plan</a></li>
+      <li><a href="resources.html">Get Help</a></li>
+    </ul>
+    <a class="nav-emergency" href="#crisis">⚑ Crisis Help</a>
+    <button class="nav-hamburger" id="nav-ham" aria-label="Menu"><i class="ti ti-menu-2"></i></button>
+  </div>
+</nav>
+
+<main>
+  <div class="container">
+
+    <div class="page-header">
+      <div class="label">// resources & support</div>
+      <h1>Get Help</h1>
+      <p>You don't have to figure this out alone. Trained advocates are available 24/7, completely free and confidential. Reaching out doesn't mean you have to do anything — you can just talk.</p>
+    </div>
+
+    <!-- CRISIS -->
+    <div class="crisis-section" id="crisis">
+      <h2><i class="ti ti-alert-triangle" aria-hidden="true"></i> If you need help right now</h2>
+      <p>If you are in immediate physical danger, call <strong>911</strong>. For emotional support, safety planning, or to talk to someone who understands, these hotlines are free, confidential, and available right now.</p>
+      <div class="crisis-hotlines">
+        <div class="crisis-card">
+          <div class="cn">National DV Hotline</div>
+          <a href="tel:18007997233"><i class="ti ti-phone" aria-hidden="true"></i> 1-800-799-7233</a>
+          <a href="sms:88788?&body=START"><i class="ti ti-message" aria-hidden="true"></i> Text START to 88788</a>
+          <a href="https://www.thehotline.org" target="_blank" rel="noopener"><i class="ti ti-world" aria-hidden="true"></i> thehotline.org</a>
+          <div class="cd">24/7 · confidential · safety planning</div>
+        </div>
+        <div class="crisis-card">
+          <div class="cn">Crisis Text Line</div>
+          <a href="sms:741741?&body=HOME"><i class="ti ti-message" aria-hidden="true"></i> Text HOME to 741741</a>
+          <a href="https://www.crisistextline.org" target="_blank" rel="noopener"><i class="ti ti-world" aria-hidden="true"></i> crisistextline.org</a>
+          <div class="cd">24/7 · text-only · any crisis</div>
+        </div>
+        <div class="crisis-card">
+          <div class="cn">Emergency Services</div>
+          <a href="tel:911"><i class="ti ti-phone-call" aria-hidden="true"></i> Call 911</a>
+          <div class="cd">immediate danger only</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- WHAT TO EXPECT -->
+    <div class="what-to-expect">
+      <div class="section-label">// what to expect when you call</div>
+      <div class="expect-grid">
+        <div class="expect-item">
+          <i class="ti ti-shield-lock" aria-hidden="true"></i>
+          <div class="ei-title">Confidential</div>
+          <div class="ei-text">Hotline advocates are trained to keep your conversation private. You don't have to give your name.</div>
+        </div>
+        <div class="expect-item">
+          <i class="ti ti-ear" aria-hidden="true"></i>
+          <div class="ei-title">Non-judgmental</div>
+          <div class="ei-text">Advocates won't pressure you to leave, judge your choices, or tell you what to do. They support whatever you decide.</div>
+        </div>
+        <div class="expect-item">
+          <i class="ti ti-heart" aria-hidden="true"></i>
+          <div class="ei-title">No commitment required</div>
+          <div class="ei-text">You can call just to talk. You don't have to be ready to leave or take any action. Just talking is enough.</div>
+        </div>
+        <div class="expect-item">
+          <i class="ti ti-map-pin" aria-hidden="true"></i>
+          <div class="ei-title">Local referrals</div>
+          <div class="ei-text">National hotlines can connect you to local shelters, legal advocates, financial resources, and therapists in your area.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- TAB SECTION -->
+    <div class="tab-group">
+      <div class="tab-nav">
+        <button class="tab-btn active" data-tab="tab-all">All Hotlines</button>
+        <button class="tab-btn" data-tab="tab-specialized">Specialized Support</button>
+        <button class="tab-btn" data-tab="tab-therapy">Find a Therapist</button>
+        <button class="tab-btn" data-tab="tab-legal">Legal Help</button>
+      </div>
+
+      <div id="tab-all" class="tab-content active">
+        <div class="hotlines-grid" id="allHotlines"></div>
+      </div>
+
+      <div id="tab-specialized" class="tab-content">
+        <div style="display:grid;gap:14px;" id="specializedHotlines"></div>
+      </div>
+
+      <div id="tab-therapy" class="tab-content">
+        <div class="prose">
+          <h2>Finding a Trauma-Informed Therapist</h2>
+          <p>Not all therapists are trained in trauma or domestic abuse. Finding the right fit matters — here's where to start.</p>
+          <h3>What to look for</h3>
+          <p>Ask if the therapist has experience with domestic violence, coercive control, or complex trauma (C-PTSD). Modalities that are specifically effective include EMDR, CPT (Cognitive Processing Therapy), and Somatic Experiencing.</p>
+          <h3>Directories</h3>
+          <ul>
+            <li><strong>Psychology Today:</strong> <a href="https://www.psychologytoday.com/us/therapists" target="_blank" rel="noopener" style="color:var(--teal)">psychologytoday.com/us/therapists</a> — filter by "domestic violence" or "trauma"</li>
+            <li><strong>SAMHSA Treatment Locator:</strong> <a href="https://findtreatment.gov" target="_blank" rel="noopener" style="color:var(--teal)">findtreatment.gov</a></li>
+            <li><strong>Open Path Collective:</strong> <a href="https://openpathcollective.org" target="_blank" rel="noopener" style="color:var(--teal)">openpathcollective.org</a> — sliding scale, $30–$80/session</li>
+            <li><strong>National DV Hotline:</strong> Call 1-800-799-7233 and ask for a therapist referral in your area</li>
+          </ul>
+          <h3>If cost is a barrier</h3>
+          <p>Many DV organizations offer free counseling. Community mental health centers often provide sliding-scale fees. Some therapists offer pro bono slots — it's worth asking directly. You can also look into whether your insurance covers outpatient mental health (which therapy falls under).</p>
+          <h3>Online therapy options</h3>
+          <p>BetterHelp and Talkspace offer online therapy with licensed therapists. While convenience is a plus, verify the therapist has trauma-specific training before starting. The DV Hotline can provide more targeted referrals for free.</p>
+        </div>
+      </div>
+
+      <div id="tab-legal" class="tab-content">
+        <div class="prose">
+          <h2>Legal Resources</h2>
+          <p>You have legal rights. Protective orders, divorce proceedings, custody arrangements, and immigration status are all areas where legal help is available — often for free.</p>
+          <h3>Protective orders</h3>
+          <p>A protective order (also called a restraining order) is a legal document requiring your abuser to stay away from you. It can cover your home, workplace, and children's school. You can apply for one at your local courthouse — DV advocates can help you through the process. Violating a protective order is a criminal offense.</p>
+          <h3>Free legal help</h3>
+          <ul>
+            <li><strong>WomensLaw.org Legal Email Hotline:</strong> <a href="https://www.womenslaw.org" target="_blank" rel="noopener" style="color:var(--teal)">womenslaw.org</a> — free legal information by email</li>
+            <li><strong>LawHelp.org:</strong> <a href="https://www.lawhelp.org" target="_blank" rel="noopener" style="color:var(--teal)">lawhelp.org</a> — state-by-state legal aid directory</li>
+            <li><strong>National Legal Aid & Defender Association:</strong> <a href="https://www.nlada.org" target="_blank" rel="noopener" style="color:var(--teal)">nlada.org</a></li>
+            <li><strong>Local DV organizations</strong> often have staff attorneys or legal advocate partnerships</li>
+          </ul>
+          <h3>Documenting abuse for legal purposes</h3>
+          <p>Courts respond to documented patterns. Save screenshots of threatening messages (with timestamps visible). Write dated accounts of incidents in a private journal. The PatternMatch journal export can provide a timestamped record. Store documentation somewhere your abuser cannot access.</p>
+          <h3>Immigration status concerns</h3>
+          <p>If your immigration status is connected to your abuser, you still have legal options. The Violence Against Women Act (VAWA) allows certain immigrants to self-petition for legal status independently of their abuser. The National DV Hotline can connect you with legal advocates who specialize in immigration and DV.</p>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <span>PatternMatch — open source, no server, no tracking</span>
+    <span>If you're in danger: <a href="tel:18007997233">1-800-799-7233</a></span>
+  </div>
+</footer>
+
+<script src="./js/engine.js"></script>
+<script src="./js/ui.js"></script>
+<script>
+const HOTLINES = [
+  {
+    name: "National Domestic Violence Hotline",
+    phone: "1-800-799-7233",
+    text: "Text START to 88788",
+    chat: "thehotline.org",
+    hours: "24/7",
+    description: "Confidential support, safety planning, and local resources for anyone experiencing domestic violence.",
+    tags: ["domestic violence", "safety planning", "crisis"],
+    specialized: false
+  },
+  {
+    name: "Crisis Text Line",
+    phone: null,
+    text: "Text HOME to 741741",
+    chat: "crisistextline.org",
+    hours: "24/7",
+    description: "Free, confidential crisis counseling via text message. Available for any emotional crisis, including relationship abuse.",
+    tags: ["crisis", "text-based", "emotional abuse"],
+    specialized: false
+  },
+  {
+    name: "RAINN National Sexual Assault Hotline",
+    phone: "1-800-656-4673",
+    text: null,
+    chat: "rainn.org/get-help",
+    hours: "24/7",
+    description: "Confidential support from trained staff. Routes callers to local affiliate sexual assault service providers.",
+    tags: ["sexual assault", "crisis"],
+    specialized: false
+  },
+  {
+    name: "loveisrespect (Teen / Young Adult)",
+    phone: "1-866-331-9474",
+    text: "Text LOVEIS to 22522",
+    chat: "loveisrespect.org",
+    hours: "24/7",
+    description: "Peer advocates for young people experiencing dating abuse. Highly trained, non-judgmental, and youth-focused.",
+    tags: ["teen", "dating abuse", "young adults"],
+    specialized: true
+  },
+  {
+    name: "NAMI Helpline",
+    phone: "1-800-950-6264",
+    text: "Text NAMI to 741741",
+    chat: "nami.org",
+    hours: "Mon–Fri, 10am–10pm ET",
+    description: "Mental health support for those affected by mental illness, including trauma and PTSD from abuse.",
+    tags: ["mental health", "PTSD", "trauma"],
+    specialized: true
+  },
+  {
+    name: "LGBT National Hotline",
+    phone: "1-888-843-4564",
+    text: null,
+    chat: "lgbthotline.org",
+    hours: "Mon–Fri 4pm–Midnight ET, Sat Noon–5pm ET",
+    description: "Peer support for LGBTQ+ community members dealing with relationship abuse, coming out, and mental health challenges.",
+    tags: ["LGBTQ+", "peer support"],
+    specialized: true
+  },
+  {
+    name: "StrongHearts Native Helpline",
+    phone: "1-844-762-8483",
+    text: null,
+    chat: "strongheartshelpline.org",
+    hours: "24/7",
+    description: "Domestic, dating, and sexual violence helpline for Native Americans and Alaska Natives. Culturally appropriate support.",
+    tags: ["Native American", "domestic violence"],
+    specialized: true
+  },
+  {
+    name: "National Human Trafficking Hotline",
+    phone: "1-888-373-7888",
+    text: "Text 233733",
+    chat: "humantraffickinghotline.org",
+    hours: "24/7",
+    description: "Support and resources for trafficking victims and survivors. Also accepts tips.",
+    tags: ["trafficking", "coercive control"],
+    specialized: true
+  },
+  {
+    name: "National Alliance for Eating Disorders",
+    phone: "1-866-662-1235",
+    text: null,
+    chat: "allianceforeatingdisorders.com",
+    hours: "Mon–Fri 9am–7pm ET",
+    description: "Support for those with eating disorders, which can co-occur with abusive relationships.",
+    tags: ["eating disorders", "mental health"],
+    specialized: true
+  },
+  {
+    name: "Childhelp National Child Abuse Hotline",
+    phone: "1-800-422-4453",
+    text: null,
+    chat: "childhelp.org",
+    hours: "24/7",
+    description: "Professional crisis counselors and referrals to thousands of emergency, social service, and support resources.",
+    tags: ["child abuse", "families"],
+    specialized: true
+  }
+];
+
+function renderHotlineCard(h) {
+  const contacts = [];
+  if (h.phone) contacts.push(`<a href="tel:${h.phone.replace(/\D/g,'')}" style="color:var(--teal);text-decoration:none;display:flex;align-items:center;gap:6px;font-family:var(--mono);font-size:13px;font-weight:500;"><i class="ti ti-phone" aria-hidden="true"></i> ${h.phone}</a>`);
+  if (h.text) contacts.push(`<span style="display:flex;align-items:center;gap:6px;font-family:var(--mono);font-size:12px;color:var(--text2);"><i class="ti ti-message" aria-hidden="true"></i> ${h.text}</span>`);
+  if (h.chat) contacts.push(`<a href="https://${h.chat}" target="_blank" rel="noopener" style="color:var(--text3);text-decoration:none;display:flex;align-items:center;gap:6px;font-family:var(--mono);font-size:11px;"><i class="ti ti-world" aria-hidden="true"></i> ${h.chat}</a>`);
+
+  return `<div class="hotline-card">
+    <div class="hotline-name">${h.name}</div>
+    <div class="hotline-desc">${h.description}</div>
+    <div class="hotline-contact">${contacts.join('')}</div>
+    <div class="hotline-hours"><i class="ti ti-clock" aria-hidden="true"></i> ${h.hours}</div>
+    <div class="hotline-tags">${h.tags.map(t => `<span class="badge badge-gray">${t}</span>`).join(' ')}</div>
+  </div>`;
+}
+
+document.getElementById('allHotlines').innerHTML = HOTLINES.filter(h => !h.specialized).map(renderHotlineCard).join('');
+document.getElementById('specializedHotlines').innerHTML = HOTLINES.filter(h => h.specialized).map(renderHotlineCard).join('');
+</script>
+
+</body>
+</html>
